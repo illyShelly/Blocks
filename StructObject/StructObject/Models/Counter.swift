@@ -11,5 +11,4 @@ import Combine
 struct Counter {
     var name: String
     var number: Int
-    
 }

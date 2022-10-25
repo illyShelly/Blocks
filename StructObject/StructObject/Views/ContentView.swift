@@ -11,6 +11,7 @@ import Combine
 struct ContentView: View {
     // Without @State will not change the UI (just working in backend)
     // Cannot declare local wrapper variable in result builder - outside the body!
+    
     @State var counter = Counter(name: "First Counter", number: 0)
     @State private var myBool = false // if I pass to another view needs to be private
     
@@ -23,9 +24,22 @@ struct ContentView: View {
                 Text("\(counter.number)")
                     .foregroundColor(.secondary)
             }
-            .padding()
+                .padding()
                 .font(.system(size: 25))
+            
+            Button("Count") {
+                counter.number += 1
+                print(counter.number)
+            }
+                .padding(.horizontal, 10.0)
+                .padding([.top, .bottom], 8.0)
+                .background(.pink)
+                .foregroundColor(.white)
+                .font(.system(size: 20))
+                .cornerRadius(8)
+                .shadow(color: .gray, radius: 5, x: 2, y: 2)
         }
+        .frame(width: 220, height: 550)
     }
 }
 
